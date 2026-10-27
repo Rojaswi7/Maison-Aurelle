@@ -1,0 +1,210 @@
+.atelier__head {
+  position: relative;
+}
+.atelier__head .display {
+  max-width: 12ch;
+}
+.atelier__ghost {
+  position: absolute;
+  right: var(--gutter);
+  top: calc(var(--nav-h) + 20px);
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(8rem, 26vw, 26rem);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(200, 164, 106, 0.18);
+  pointer-events: none;
+  user-select: none;
+  z-index: -1;
+}
+
+.timeline {
+  position: relative;
+}
+.timeline__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(32px, 5vh, 64px);
+  border-top: 1px solid var(--line);
+}
+.timeline__top {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.timeline__top .eyebrow {
+  margin: 0;
+  white-space: nowrap;
+}
+.timeline__bar {
+  flex: 1;
+  height: 1px;
+  background: var(--line-strong);
+  position: relative;
+}
+.timeline__bar span {
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  transform-origin: left;
+}
+.timeline__track {
+  list-style: none;
+  margin: 0;
+  padding: 0 var(--gutter);
+  display: flex;
+  gap: clamp(32px, 5vw, 80px);
+  width: max-content;
+}
+.moment {
+  width: clamp(280px, 38vw, 520px);
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+.moment__year {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(5rem, 11vw, 10rem);
+  line-height: 0.9;
+  background: linear-gradient(180deg, var(--gold-2), var(--gold-3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.moment__title {
+  margin: 1.4rem 0 0.8rem;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+}
+.moment__text {
+  margin: 0;
+  color: var(--muted);
+  max-width: 40ch;
+}
+
+.metiers__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: clamp(48px, 6vw, 80px);
+}
+.metier {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 340px;
+  padding: 1.8rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 0.6s var(--ease);
+}
+.metier::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(80% 60% at 50% 100%, rgba(200, 164, 106, 0.18), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.8s var(--ease);
+}
+.metier:hover {
+  border-color: rgba(200, 164, 106, 0.45);
+}
+.metier:hover::before {
+  opacity: 1;
+}
+.metier__n {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--gold);
+  font-size: 1.2rem;
+}
+.metier__name {
+  margin: auto 0 0.8rem;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 1.05;
+}
+.metier__text {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.metier__hours {
+  margin: 1.4rem 0 0;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.metier__hours span {
+  color: var(--gold-2);
+}
+
+.founder__grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(40px, 7vw, 120px);
+  align-items: center;
+}
+.founder__watch {
+  height: min(70svh, 600px);
+  aspect-ratio: 400 / 680;
+  filter: drop-shadow(0 40px 50px rgba(60, 40, 10, 0.35));
+}
+.founder__watch .watch {
+  width: 100%;
+  height: 100%;
+}
+.founder__quote {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(2.2rem, 4.4vw, 4rem);
+  line-height: 1.05;
+}
+.founder__quote em {
+  color: var(--gold-3);
+}
+.founder__cite {
+  margin: 1.8rem 0 2.6rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted-ink);
+}
+
+@media (max-width: 1000px) {
+  .metiers__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .founder__grid {
+    grid-template-columns: 1fr;
+  }
+  .founder__watch {
+    justify-self: center;
+    height: 54svh;
+  }
+}
+@media (max-width: 560px) {
+  .metiers__grid {
+    grid-template-columns: 1fr;
+  }
+  .metier {
+    min-height: 240px;
+  }
+  .moment {
+    width: 78vw;
+  }
+}
